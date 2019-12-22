@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.KeyguardBottomAreaView android:id="@id/keyguard_bottom_area" android:layout_width="fill_parent" android:layout_height="fill_parent" android:elevation="5.0dip" android:outlineProvider="none"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui">
+    <include layout="@layout/keyguard_indication_area_overlay" />
+    <FrameLayout android:id="@id/preview_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.android.systemui.statusbar.KeyguardAffordanceView android:layout_gravity="end|bottom|center" android:id="@id/camera_button" android:layout_width="@dimen/keyguard_affordance_width" android:layout_height="@dimen/keyguard_affordance_height" android:src="@drawable/ic_camera_alt_24dp" android:scaleType="center" android:tint="?wallpaperTextColor" android:contentDescription="@string/accessibility_camera_button" />
+    <com.android.systemui.statusbar.KeyguardAffordanceView android:layout_gravity="start|bottom|center" android:id="@id/left_button" android:layout_width="@dimen/keyguard_affordance_width" android:layout_height="@dimen/keyguard_affordance_height" android:src="@android:drawable/ic_phone" android:scaleType="center" android:tint="?wallpaperTextColor" android:contentDescription="@string/accessibility_phone_button" />
+    <FrameLayout android:id="@id/overlay_container" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/keyguard_bottom_area_overlay" />
+    </FrameLayout>
+</com.android.systemui.statusbar.phone.KeyguardBottomAreaView>

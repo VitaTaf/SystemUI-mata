@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:title="@string/sprint_smf_wfc_overview_title" android:key="sprint_smf_wfc_overview" android:summary="@string/sprint_smf_cp_overview_summary" />
+    <Preference android:title="@string/sprint_smf_wfc_faq_title" android:key="sprint_smf_wfc_faq" android:summary="@string/sprint_smf_cp_faq_summary" />
+</PreferenceScreen>

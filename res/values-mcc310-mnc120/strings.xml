@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quick_settings_tiles_default">wifi,cell,wfc,battery,dnd,flashlight,rotation,bt,airplane</string>
+    <string name="quick_settings_tiles_stock">wifi,cell,battery,dnd,flashlight,rotation,bt,airplane,wfc,location,hotspot,inversion,saver,work,cast,night</string>
+</resources>
