@@ -73,6 +73,68 @@
     return p0
 .end method
 
+.method public static computeBytesSize(I[B)I
+    .locals 0
+
+    .line 672
+    invoke-static {p0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeTagSize(I)I
+
+    move-result p0
+
+    invoke-static {p1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeBytesSizeNoTag([B)I
+
+    move-result p1
+
+    add-int/2addr p0, p1
+
+    return p0
+.end method
+
+.method public static computeBytesSizeNoTag([B)I
+    .locals 1
+
+    .line 861
+    array-length v0, p0
+
+    invoke-static {v0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeRawVarint32Size(I)I
+
+    move-result v0
+
+    array-length p0, p0
+
+    add-int/2addr v0, p0
+
+    return v0
+.end method
+
+.method public static computeEnumSize(II)I
+    .locals 0
+
+    .line 698
+    invoke-static {p0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeTagSize(I)I
+
+    move-result p0
+
+    invoke-static {p1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeEnumSizeNoTag(I)I
+
+    move-result p1
+
+    add-int/2addr p0, p1
+
+    return p0
+.end method
+
+.method public static computeEnumSizeNoTag(I)I
+    .locals 0
+
+    .line 885
+    invoke-static {p0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeRawVarint32Size(I)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public static computeFloatSize(IF)I
     .locals 0
 
@@ -129,6 +191,34 @@
 
     :cond_0
     const/16 p0, 0xa
+
+    return p0
+.end method
+
+.method public static computeInt64Size(IJ)I
+    .locals 0
+
+    .line 601
+    invoke-static {p0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeTagSize(I)I
+
+    move-result p0
+
+    invoke-static {p1, p2}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeInt64SizeNoTag(J)I
+
+    move-result p1
+
+    add-int/2addr p0, p1
+
+    return p0
+.end method
+
+.method public static computeInt64SizeNoTag(J)I
+    .locals 0
+
+    .line 790
+    invoke-static {p0, p1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeRawVarint64Size(J)I
+
+    move-result p0
 
     return p0
 .end method
@@ -388,6 +478,34 @@
 
     move-result p0
 
+    invoke-static {p0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeRawVarint32Size(I)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static computeUInt32Size(II)I
+    .locals 0
+
+    .line 689
+    invoke-static {p0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeTagSize(I)I
+
+    move-result p0
+
+    invoke-static {p1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeUInt32SizeNoTag(I)I
+
+    move-result p1
+
+    add-int/2addr p0, p1
+
+    return p0
+.end method
+
+.method public static computeUInt32SizeNoTag(I)I
+    .locals 0
+
+    .line 877
     invoke-static {p0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeRawVarint32Size(I)I
 
     move-result p0
@@ -1287,6 +1405,77 @@
     return-void
 .end method
 
+.method public writeBytes(I[B)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v0, 0x2
+
+    .line 173
+    invoke-virtual {p0, p1, v0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeTag(II)V
+
+    .line 174
+    invoke-virtual {p0, p2}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeBytesNoTag([B)V
+
+    return-void
+.end method
+
+.method public writeBytesNoTag([B)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 525
+    array-length v0, p1
+
+    invoke-virtual {p0, v0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeRawVarint32(I)V
+
+    .line 526
+    invoke-virtual {p0, p1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeRawBytes([B)V
+
+    return-void
+.end method
+
+.method public writeEnum(II)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    .line 198
+    invoke-virtual {p0, p1, v0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeTag(II)V
+
+    .line 199
+    invoke-virtual {p0, p2}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeEnumNoTag(I)V
+
+    return-void
+.end method
+
+.method public writeEnumNoTag(I)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 546
+    invoke-virtual {p0, p1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeRawVarint32(I)V
+
+    return-void
+.end method
+
 .method public writeFloat(IF)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
@@ -1365,6 +1554,39 @@
     invoke-virtual {p0, v0, v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeRawVarint64(J)V
 
     :goto_0
+    return-void
+.end method
+
+.method public writeInt64(IJ)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    .line 116
+    invoke-virtual {p0, p1, v0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeTag(II)V
+
+    .line 117
+    invoke-virtual {p0, p2, p3}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeInt64NoTag(J)V
+
+    return-void
+.end method
+
+.method public writeInt64NoTag(J)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 275
+    invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeRawVarint64(J)V
+
     return-void
 .end method
 
@@ -1832,6 +2054,39 @@
 
     move-result p1
 
+    invoke-virtual {p0, p1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeRawVarint32(I)V
+
+    return-void
+.end method
+
+.method public writeUInt32(II)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    .line 188
+    invoke-virtual {p0, p1, v0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeTag(II)V
+
+    .line 189
+    invoke-virtual {p0, p2}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeUInt32NoTag(I)V
+
+    return-void
+.end method
+
+.method public writeUInt32NoTag(I)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 538
     invoke-virtual {p0, p1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeRawVarint32(I)V
 
     return-void
