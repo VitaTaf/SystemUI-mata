@@ -141,6 +141,15 @@
     return p0
 .end method
 
+.method public setPrimaryAction(Landroidx/slice/builders/SliceAction;)Landroidx/slice/builders/ListBuilder$HeaderBuilder;
+    .locals 0
+
+    .line 1570
+    iput-object p1, p0, Landroidx/slice/builders/ListBuilder$HeaderBuilder;->mPrimaryAction:Landroidx/slice/builders/SliceAction;
+
+    return-object p0
+.end method
+
 .method public setTitle(Ljava/lang/CharSequence;)Landroidx/slice/builders/ListBuilder$HeaderBuilder;
     .locals 1
 
