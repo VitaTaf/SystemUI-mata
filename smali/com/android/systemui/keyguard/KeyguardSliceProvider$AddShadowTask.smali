@@ -1,11 +1,11 @@
-.class Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;
+.class Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;
 .super Landroid/os/AsyncTask;
-.source "KeyguardSliceProviderGoogle.java"
+.source "KeyguardSliceProvider.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;
+    value = Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -31,7 +31,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
-            "Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;",
+            "Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;",
             ">;"
         }
     .end annotation
@@ -41,7 +41,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;Lcom/google/android/systemui/smartspace/SmartSpaceCard;)V
+.method constructor <init>(Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;Lcom/google/android/systemui/smartspace/SmartSpaceCard;)V
     .locals 1
 
     .line 212
@@ -52,10 +52,10 @@
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;->mProviderReference:Ljava/lang/ref/WeakReference;
+    iput-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;->mProviderReference:Ljava/lang/ref/WeakReference;
 
     .line 214
-    iput-object p2, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;->mWeatherCard:Lcom/google/android/systemui/smartspace/SmartSpaceCard;
+    iput-object p2, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;->mWeatherCard:Lcom/google/android/systemui/smartspace/SmartSpaceCard;
 
     .line 215
     invoke-virtual {p1}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
@@ -73,7 +73,7 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;->mBlurRadius:F
+    iput p1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;->mBlurRadius:F
 
     return-void
 .end method
@@ -84,7 +84,7 @@
     .line 237
     new-instance v0, Landroid/graphics/BlurMaskFilter;
 
-    iget v1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;->mBlurRadius:F
+    iget v1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;->mBlurRadius:F
 
     sget-object v2, Landroid/graphics/BlurMaskFilter$Blur;->NORMAL:Landroid/graphics/BlurMaskFilter$Blur;
 
@@ -150,7 +150,7 @@
 
     int-to-float v0, v0
 
-    iget p0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;->mBlurRadius:F
+    iget p0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;->mBlurRadius:F
 
     const/high16 v6, 0x40000000    # 2.0f
 
@@ -186,7 +186,7 @@
     .line 221
     aget-object p1, p1, v0
 
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;->applyShadow(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;->applyShadow(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     move-result-object p0
 
@@ -199,7 +199,7 @@
     .line 206
     check-cast p1, [Landroid/graphics/Bitmap;
 
-    invoke-virtual {p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;->doInBackground([Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+    invoke-virtual {p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;->doInBackground([Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     move-result-object p0
 
@@ -214,18 +214,18 @@
 
     .line 228
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;->mWeatherCard:Lcom/google/android/systemui/smartspace/SmartSpaceCard;
+    iget-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;->mWeatherCard:Lcom/google/android/systemui/smartspace/SmartSpaceCard;
 
     invoke-virtual {v0, p1}, Lcom/google/android/systemui/smartspace/SmartSpaceCard;->setIcon(Landroid/graphics/Bitmap;)V
 
     .line 229
-    iget-object p1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;->mProviderReference:Ljava/lang/ref/WeakReference;
+    iget-object p1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;->mProviderReference:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;
+    check-cast p1, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;
 
     .line 230
     monitor-exit p0
@@ -235,7 +235,7 @@
     if-eqz p1, :cond_0
 
     .line 232
-    invoke-static {p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->access$000(Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;)V
+    invoke-static {p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->access$000(Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;)V
 
     :cond_0
     return-void
@@ -258,7 +258,7 @@
     .line 206
     check-cast p1, Landroid/graphics/Bitmap;
 
-    invoke-virtual {p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;->onPostExecute(Landroid/graphics/Bitmap;)V
+    invoke-virtual {p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;->onPostExecute(Landroid/graphics/Bitmap;)V
 
     return-void
 .end method
