@@ -846,6 +846,8 @@
 
     move-result-object v0
 
+    const/4 p2, 0x0
+
     if-eqz p2, :cond_0
 
     const/4 p0, 0x3
