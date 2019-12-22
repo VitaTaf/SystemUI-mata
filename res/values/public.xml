@@ -2789,6 +2789,7 @@
     <public type="dimen" name="qs_brightness_padding_top" id="0x7f0702f4" />
     <public type="dimen" name="picture_in_picture_button_start_margin" id="0x7f0702db" />
     <public type="dimen" name="picture_in_picture_button_width" id="0x7f0702dc" />
+    <public type="dimen" name="smartspace_icon_shadow" id="0x7f07f000" />
     <public type="drawable" name="$$face_dialog_dark_to_checkmark__10__0" id="0x7f080000" />
     <public type="drawable" name="$$face_dialog_dark_to_checkmark__11__0" id="0x7f080001" />
     <public type="drawable" name="$$face_dialog_dark_to_checkmark__11__1" id="0x7f080002" />
@@ -5469,6 +5470,8 @@
     <public type="plurals" name="snoozeMinuteOptions" id="0x7f0f000e" />
     <public type="plurals" name="user_limit_reached_message" id="0x7f0f000f" />
     <public type="plurals" name="wifi_tether_connected_summary" id="0x7f0f0010" />
+    <public type="plurals" name="smartspace_hours" id="0x7f0f0011" />
+    <public type="plurals" name="smartspace_minutes" id="0x7f0f0012" />
     <public type="raw" name="image_wallpaper_fragment_shader" id="0x7f100000" />
     <public type="raw" name="image_wallpaper_vertex_shader" id="0x7f100001" />
     <public type="raw" name="lb_voice_failure" id="0x7f100002" />
@@ -7111,6 +7114,9 @@
     <public type="string" name="APKTOOL_DUMMY_3f1" id="0x7f1103f1" />
     <public type="string" name="APKTOOL_DUMMY_3f2" id="0x7f1103f2" />
     <public type="string" name="toast_rotation_locked" id="0x7f110599" />
+    <public type="string" name="smartspace_hours_mins" id="0x7f11f000" />
+    <public type="string" name="smartspace_now" id="0x7f11f001" />
+    <public type="string" name="smartspace_pill_text_format" id="0x7f11f002" />
     <public type="style" name="AlertDialog.AppCompat" id="0x7f120000" />
     <public type="style" name="AlertDialog.AppCompat.Light" id="0x7f120001" />
     <public type="style" name="Animation" id="0x7f120002" />

@@ -513,3 +513,5 @@
 .field public static final wireless_charging_anim_battery_level_text_size_start:I = 0x7f0703f6
 
 .field public static final z_distance_between_notifications:I = 0x7f0703fb
+
+.field public static final smartspace_icon_shadow:I = 0x7f07f000

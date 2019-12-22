@@ -1004,4 +1004,5 @@
     <dimen name="zen_mode_condition_detail_button_padding">8.0dip</dimen>
     <dimen name="zen_mode_condition_detail_item_interline_spacing">4.0dip</dimen>
     <dimen name="zen_mode_condition_detail_item_spacing">12.0dip</dimen>
+    <dimen name="smartspace_icon_shadow">1.0dip</dimen>
 </resources>

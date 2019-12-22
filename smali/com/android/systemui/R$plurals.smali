@@ -21,3 +21,7 @@
 .field public static final snoozeHourOptions:I = 0x7f0f000d
 
 .field public static final snoozeMinuteOptions:I = 0x7f0f000e
+
+.field public static final smartspace_hours:I = 0x7f0f0011
+
+.field public static final smartspace_minutes:I = 0x7f0f0012
