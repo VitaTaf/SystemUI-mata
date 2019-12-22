@@ -12523,7 +12523,7 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mActivityIntentHelper:Lcom/android/systemui/ActivityIntentHelper;
 
     .line 665
-    invoke-static {}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->getAttachedInstance()Lcom/android/systemui/keyguard/KeyguardSliceProvider;
+    invoke-static {}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->getAttachedInstance()Lcom/android/systemui/keyguard/KeyguardSliceProvider2;
 
     move-result-object v0
 

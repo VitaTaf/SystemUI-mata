@@ -1434,7 +1434,7 @@
     if-eqz v0, :cond_1
 
     .line 396
-    invoke-static {}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->getAttachedInstance()Lcom/android/systemui/keyguard/KeyguardSliceProvider;
+    invoke-static {}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->getAttachedInstance()Lcom/android/systemui/keyguard/KeyguardSliceProvider2;
 
     move-result-object v0
 
@@ -1443,7 +1443,7 @@
     .line 398
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSliceView;->mKeyguardSliceUri:Landroid/net/Uri;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->onBindSlice(Landroid/net/Uri;)Landroidx/slice/Slice;
+    invoke-virtual {v0, v1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->onBindSlice(Landroid/net/Uri;)Landroidx/slice/Slice;
 
     move-result-object v0
 
