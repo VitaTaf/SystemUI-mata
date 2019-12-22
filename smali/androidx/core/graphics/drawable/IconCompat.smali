@@ -2106,6 +2106,15 @@
     throw p0
 .end method
 
+.method public setTintMode(Landroid/graphics/PorterDuff$Mode;)Landroidx/core/graphics/drawable/IconCompat;
+    .locals 0
+
+    .line 436
+    iput-object p1, p0, Landroidx/core/graphics/drawable/IconCompat;->mTintMode:Landroid/graphics/PorterDuff$Mode;
+
+    return-object p0
+.end method
+
 .method public toBundle()Landroid/os/Bundle;
     .locals 4
 
