@@ -1,11 +1,11 @@
-.class Lcom/android/systemui/keyguard/KeyguardSliceProvider$1;
+.class Lcom/android/systemui/keyguard/KeyguardSliceProvider2$1;
 .super Landroid/content/BroadcastReceiver;
 .source "KeyguardSliceProvider.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/systemui/keyguard/KeyguardSliceProvider;
+    value = Lcom/android/systemui/keyguard/KeyguardSliceProvider2;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,15 +15,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/keyguard/KeyguardSliceProvider;
+.field final synthetic this$0:Lcom/android/systemui/keyguard/KeyguardSliceProvider2;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/keyguard/KeyguardSliceProvider;)V
+.method constructor <init>(Lcom/android/systemui/keyguard/KeyguardSliceProvider2;)V
     .locals 0
 
     .line 138
-    iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider$1;->this$0:Lcom/android/systemui/keyguard/KeyguardSliceProvider;
+    iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider2$1;->this$0:Lcom/android/systemui/keyguard/KeyguardSliceProvider2;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
@@ -54,9 +54,9 @@
 
     .line 144
     :try_start_0
-    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider$1;->this$0:Lcom/android/systemui/keyguard/KeyguardSliceProvider;
+    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider2$1;->this$0:Lcom/android/systemui/keyguard/KeyguardSliceProvider2;
 
-    invoke-virtual {p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->updateClockLocked()V
+    invoke-virtual {p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->updateClockLocked()V
 
     .line 145
     monitor-exit p0
@@ -87,9 +87,9 @@
 
     .line 148
     :try_start_1
-    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider$1;->this$0:Lcom/android/systemui/keyguard/KeyguardSliceProvider;
+    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider2$1;->this$0:Lcom/android/systemui/keyguard/KeyguardSliceProvider2;
 
-    invoke-virtual {p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->cleanDateFormatLocked()V
+    invoke-virtual {p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->cleanDateFormatLocked()V
 
     .line 149
     monitor-exit p0
