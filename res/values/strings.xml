@@ -1724,4 +1724,7 @@ Any user can update apps for all other users."</string>
     <string name="zen_silence_introduction_voice">"This blocks ALL sounds and vibrations, including from alarms, music, videos, and games. You'll still be able to make phone calls."</string>
     <item type="string" name="APKTOOL_DUMMY_3f1">false</item>
     <item type="string" name="APKTOOL_DUMMY_3f2">false</item>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Now</string>
+    <string name="smartspace_pill_text_format">%1$s: %2$s</string>
 </resources>
