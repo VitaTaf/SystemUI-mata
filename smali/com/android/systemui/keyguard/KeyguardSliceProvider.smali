@@ -1,6 +1,6 @@
-.class public Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;
-.super Lcom/android/systemui/keyguard/KeyguardSliceProvider;
-.source "KeyguardSliceProviderGoogle.java"
+.class public Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;
+.super Lcom/android/systemui/keyguard/KeyguardSliceProvider2;
+.source "KeyguardSliceProvider.java"
 
 # interfaces
 .implements Lcom/google/android/systemui/smartspace/SmartSpaceUpdateListener;
@@ -9,7 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;
+        Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;
     }
 .end annotation
 
@@ -41,7 +41,7 @@
 
     move-result v0
 
-    sput-boolean v0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->DEBUG:Z
+    sput-boolean v0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->DEBUG:Z
 
     return-void
 .end method
@@ -50,7 +50,7 @@
     .locals 1
 
     .line 71
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;-><init>()V
 
     const-string v0, "content://com.android.systemui.keyguard/smartSpace/weather"
 
@@ -59,7 +59,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->mWeatherUri:Landroid/net/Uri;
+    iput-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->mWeatherUri:Landroid/net/Uri;
 
     const-string v0, "content://com.android.systemui.keyguard/smartSpace/calendar"
 
@@ -68,16 +68,16 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->mCalendarUri:Landroid/net/Uri;
+    iput-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->mCalendarUri:Landroid/net/Uri;
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;)V
+.method static synthetic access$000(Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;)V
     .locals 0
 
     .line 55
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->notifyChange()V
+    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->notifyChange()V
 
     return-void
 .end method
@@ -86,7 +86,7 @@
     .locals 2
 
     .line 148
-    iget-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->mSmartSpaceData:Lcom/google/android/systemui/smartspace/SmartSpaceData;
+    iget-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->mSmartSpaceData:Lcom/google/android/systemui/smartspace/SmartSpaceData;
 
     invoke-virtual {v0}, Lcom/google/android/systemui/smartspace/SmartSpaceData;->getWeatherCard()Lcom/google/android/systemui/smartspace/SmartSpaceCard;
 
@@ -104,7 +104,7 @@
     .line 150
     new-instance v1, Landroidx/slice/builders/ListBuilder$RowBuilder;
 
-    iget-object p0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->mWeatherUri:Landroid/net/Uri;
+    iget-object p0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->mWeatherUri:Landroid/net/Uri;
 
     invoke-direct {v1, p0}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>(Landroid/net/Uri;)V
 
@@ -150,7 +150,7 @@
 .method public onBindSlice(Landroid/net/Uri;)Landroidx/slice/Slice;
     .locals 6
 
-    const-string p1, "KeyguardSliceProviderGoogle#onBindSlice"
+    const-string p1, "KeyguardSliceProvider#onBindSlice"
 
     .line 86
     invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
@@ -162,7 +162,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mSliceUri:Landroid/net/Uri;
+    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->mSliceUri:Landroid/net/Uri;
 
     const-wide/16 v2, -0x1
 
@@ -173,14 +173,14 @@
 
     .line 90
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->mSmartSpaceData:Lcom/google/android/systemui/smartspace/SmartSpaceData;
+    iget-object v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->mSmartSpaceData:Lcom/google/android/systemui/smartspace/SmartSpaceData;
 
     invoke-virtual {v0}, Lcom/google/android/systemui/smartspace/SmartSpaceData;->getCurrentCard()Lcom/google/android/systemui/smartspace/SmartSpaceCard;
 
     move-result-object v0
 
     .line 91
-    iget-boolean v1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->mHideSensitiveContent:Z
+    iget-boolean v1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->mHideSensitiveContent:Z
 
     if-nez v1, :cond_7
 
@@ -252,7 +252,7 @@
     :goto_1
     new-instance v3, Landroidx/slice/builders/ListBuilder$HeaderBuilder;
 
-    iget-object v5, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mHeaderUri:Landroid/net/Uri;
+    iget-object v5, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->mHeaderUri:Landroid/net/Uri;
 
     invoke-direct {v3, v5}, Landroidx/slice/builders/ListBuilder$HeaderBuilder;-><init>(Landroid/net/Uri;)V
 
@@ -282,7 +282,7 @@
     .line 109
     new-instance v3, Landroidx/slice/builders/ListBuilder$RowBuilder;
 
-    iget-object v5, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->mCalendarUri:Landroid/net/Uri;
+    iget-object v5, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->mCalendarUri:Landroid/net/Uri;
 
     invoke-direct {v3, v5}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>(Landroid/net/Uri;)V
 
@@ -305,13 +305,13 @@
 
     .line 118
     :cond_6
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->addWeather(Landroidx/slice/builders/ListBuilder;)V
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->addWeather(Landroidx/slice/builders/ListBuilder;)V
 
     .line 119
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addZenModeLocked(Landroidx/slice/builders/ListBuilder;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->addZenModeLocked(Landroidx/slice/builders/ListBuilder;)V
 
     .line 120
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addPrimaryActionLocked(Landroidx/slice/builders/ListBuilder;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->addPrimaryActionLocked(Landroidx/slice/builders/ListBuilder;)V
 
     .line 121
     invoke-static {}, Landroid/os/Trace;->endSection()V
@@ -327,14 +327,14 @@
 
     .line 125
     :cond_7
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->needsMediaLocked()Z
+    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->needsMediaLocked()Z
 
     move-result v0
 
     if-eqz v0, :cond_8
 
     .line 126
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addMediaLocked(Landroidx/slice/builders/ListBuilder;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->addMediaLocked(Landroidx/slice/builders/ListBuilder;)V
 
     goto :goto_2
 
@@ -342,12 +342,12 @@
     :cond_8
     new-instance v0, Landroidx/slice/builders/ListBuilder$RowBuilder;
 
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mDateUri:Landroid/net/Uri;
+    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->mDateUri:Landroid/net/Uri;
 
     invoke-direct {v0, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>(Landroid/net/Uri;)V
 
     .line 130
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->getFormattedDateLocked()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->getFormattedDateLocked()Ljava/lang/String;
 
     move-result-object v1
 
@@ -358,16 +358,16 @@
 
     .line 133
     :goto_2
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->addWeather(Landroidx/slice/builders/ListBuilder;)V
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->addWeather(Landroidx/slice/builders/ListBuilder;)V
 
     .line 134
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addNextAlarmLocked(Landroidx/slice/builders/ListBuilder;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->addNextAlarmLocked(Landroidx/slice/builders/ListBuilder;)V
 
     .line 135
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addZenModeLocked(Landroidx/slice/builders/ListBuilder;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->addZenModeLocked(Landroidx/slice/builders/ListBuilder;)V
 
     .line 136
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addPrimaryActionLocked(Landroidx/slice/builders/ListBuilder;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->addPrimaryActionLocked(Landroidx/slice/builders/ListBuilder;)V
 
     .line 137
     monitor-exit p0
@@ -380,7 +380,7 @@
     move-result-object p0
 
     .line 140
-    sget-boolean p1, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->DEBUG:Z
+    sget-boolean p1, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->DEBUG:Z
 
     if-eqz p1, :cond_9
 
@@ -425,7 +425,7 @@
     .locals 2
 
     .line 78
-    invoke-super {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->onCreateSliceProvider()Z
+    invoke-super {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->onCreateSliceProvider()Z
 
     move-result v0
 
@@ -445,7 +445,7 @@
 
     invoke-direct {v1}, Lcom/google/android/systemui/smartspace/SmartSpaceData;-><init>()V
 
-    iput-object v1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->mSmartSpaceData:Lcom/google/android/systemui/smartspace/SmartSpaceData;
+    iput-object v1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->mSmartSpaceData:Lcom/google/android/systemui/smartspace/SmartSpaceData;
 
     return v0
 .end method
@@ -458,17 +458,17 @@
 
     .line 168
     :try_start_0
-    iget-boolean v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->mHideSensitiveContent:Z
+    iget-boolean v0, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->mHideSensitiveContent:Z
 
     if-eq v0, p1, :cond_0
 
     .line 169
-    iput-boolean p1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->mHideSensitiveContent:Z
+    iput-boolean p1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->mHideSensitiveContent:Z
 
     const/4 v0, 0x1
 
     .line 171
-    sget-boolean v1, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->DEBUG:Z
+    sget-boolean v1, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->DEBUG:Z
 
     if-eqz v1, :cond_1
 
@@ -506,7 +506,7 @@
     if-eqz v0, :cond_2
 
     .line 177
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->notifyChange()V
+    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->notifyChange()V
 
     :cond_2
     return-void
@@ -531,7 +531,7 @@
 
     .line 184
     :try_start_0
-    iput-object p1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;->mSmartSpaceData:Lcom/google/android/systemui/smartspace/SmartSpaceData;
+    iput-object p1, p0, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;->mSmartSpaceData:Lcom/google/android/systemui/smartspace/SmartSpaceData;
 
     .line 185
     monitor-exit p0
@@ -565,9 +565,9 @@
     invoke-virtual {p1, v0}, Lcom/google/android/systemui/smartspace/SmartSpaceCard;->setIconProcessed(Z)V
 
     .line 191
-    new-instance v1, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;
+    new-instance v1, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;
 
-    invoke-direct {v1, p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle$AddShadowTask;-><init>(Lcom/google/android/systemui/keyguard/KeyguardSliceProviderGoogle;Lcom/google/android/systemui/smartspace/SmartSpaceCard;)V
+    invoke-direct {v1, p0, p1}, Lcom/google/android/systemui/keyguard/KeyguardSliceProvider$AddShadowTask;-><init>(Lcom/google/android/systemui/keyguard/KeyguardSliceProvider;Lcom/google/android/systemui/smartspace/SmartSpaceCard;)V
 
     new-array p0, v0, [Landroid/graphics/Bitmap;
 
@@ -585,7 +585,7 @@
 
     .line 193
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->notifyChange()V
+    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->notifyChange()V
 
     :goto_0
     return-void
@@ -606,7 +606,7 @@
     .locals 0
 
     .line 203
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->notifyChange()V
+    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider2;->notifyChange()V
 
     return-void
 .end method
