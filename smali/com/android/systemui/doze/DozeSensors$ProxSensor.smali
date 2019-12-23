@@ -40,6 +40,8 @@
 
 .field mSleep:Z
 
+.field mPulseByProx:Z
+
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;)V
@@ -432,6 +434,16 @@
     if-nez v0, :cond_6
 
     .line 363
+    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->isScreenOn()Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mPulseByProx:Z
+
     invoke-direct {p0}, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->pulse()V
 
     :cond_6
@@ -582,4 +594,26 @@
     .line 81
     :cond_0
     return-void
+.end method
+
+.method isScreenOn()Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
+
+    iget-object v1, v0, Lcom/android/systemui/doze/DozeSensors;->mContext:Landroid/content/Context;
+
+    const-class v0, Landroid/os/PowerManager;
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/PowerManager;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager;->isInteractive()Z
+
+    move-result v0
+
+    return v0
 .end method
