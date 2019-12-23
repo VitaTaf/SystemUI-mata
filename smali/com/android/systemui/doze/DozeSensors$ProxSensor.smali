@@ -38,6 +38,8 @@
 
 .field mJustRequested:Z
 
+.field mSleep:Z
+
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;)V
@@ -381,6 +383,34 @@
     .line 358
     iput-wide v2, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mLastNear:J
 
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
+
+    invoke-virtual {v0}, Lcom/android/systemui/doze/DozeSensors;->isKeyguard()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_x
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mSleep:Z
+
+    new-instance v0, Lcom/android/systemui/doze/-$$Lambda$DozeSensors$ProxSensor$ocSoA7n0sI8mkM1nacSopw2_2Od;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/doze/-$$Lambda$DozeSensors$ProxSensor$ocSoA7n0sI8mkM1nacSopw2_2Od;-><init>(Lcom/android/systemui/doze/DozeSensors$ProxSensor;)V
+
+    check-cast v0, Ljava/lang/Runnable;
+
+    iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
+
+    invoke-static {v1}, Lcom/android/systemui/doze/DozeSensors;->access$300(Lcom/android/systemui/doze/DozeSensors;)Landroid/os/Handler;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x12C
+
+    invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
     goto :goto_1
 
     .line 359
@@ -392,6 +422,10 @@
     move-result p1
 
     if-eqz p1, :cond_6
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mSleep:Z
 
     iget-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mJustRequested:Z
 
@@ -407,6 +441,11 @@
     iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mJustRequested:Z
 
     return-void
+
+    :cond_x
+    invoke-virtual {v0, v1}, Lcom/android/systemui/doze/DozeSensors;->setProxListening(Z)V
+
+    goto :goto_1
 .end method
 
 .method setRequested(Z)V
@@ -526,5 +565,21 @@
 
     invoke-interface {v0, v4, v3, v1, v2}, Lcom/android/systemui/doze/DozeSensors$Callback;->onSensorPulse(IFF[F)V
 
+    return-void
+.end method
+
+.method public static synthetic lambda$new$0(Lcom/android/systemui/doze/DozeSensors$ProxSensor;)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mSleep:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
+
+    invoke-virtual {v0}, Lcom/android/systemui/doze/DozeSensors;->requestSleep()V
+
+    .line 81
+    :cond_0
     return-void
 .end method
