@@ -59,6 +59,8 @@
 
 .field private final mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
+.field proxOffPending:I
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -163,6 +165,10 @@
 
     .line 101
     iput-boolean v2, v0, Lcom/android/systemui/doze/DozeTriggers;->mAllowPulseTriggers:Z
+
+    const/4 v2, 0x0
+
+    iput v2, v0, Lcom/android/systemui/doze/DozeTriggers;->proxOffPending:I
 
     .line 102
     new-instance v12, Lcom/android/systemui/doze/DozeSensors;
@@ -1487,6 +1493,17 @@
 .method public transitionTo(Lcom/android/systemui/doze/DozeMachine$State;Lcom/android/systemui/doze/DozeMachine$State;)V
     .locals 3
 
+    const/4 v1, 0x7
+
+    iget v0, p0, Lcom/android/systemui/doze/DozeTriggers;->proxOffPending:I
+
+    if-ge v0, v1, :cond_x
+
+    add-int/lit8 v0, v0, 0x1
+
+    :cond_x
+    iput v0, p0, Lcom/android/systemui/doze/DozeTriggers;->proxOffPending:I
+
     .line 297
     sget-object p1, Lcom/android/systemui/doze/DozeTriggers$3;->$SwitchMap$com$android$systemui$doze$DozeMachine$State:[I
 
@@ -1536,9 +1553,10 @@
     invoke-virtual {p1, v1}, Lcom/android/systemui/doze/DozeSensors;->setListening(Z)V
 
     .line 340
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers;->mDozeSensors:Lcom/android/systemui/doze/DozeSensors;
+    iget v0, p0, Lcom/android/systemui/doze/DozeTriggers;->proxOffPending:I
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/doze/DozeSensors;->setProxListening(Z)V
+    .line 209
+    invoke-virtual {p0, v0}, Lcom/android/systemui/doze/DozeTriggers;->turnOffProx(I)V
 
     goto :goto_1
 
@@ -1682,4 +1700,47 @@
         :pswitch_1
         :pswitch_0
     .end packed-switch
+.end method
+
+.method public static synthetic lambda$new$0(Lcom/android/systemui/doze/DozeSensors;ILcom/android/systemui/doze/DozeTriggers;)V
+    .locals 1
+    iget v0, p2, Lcom/android/systemui/doze/DozeTriggers;->proxOffPending:I
+
+    if-ne v0, p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeSensors;->isKeyguard()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/doze/DozeSensors;->setProxListening(Z)V
+
+    goto :cond_0
+
+    :cond_1
+    invoke-virtual {p2, p1}, Lcom/android/systemui/doze/DozeTriggers;->turnOffProx(I)V
+
+    .line 81
+    :cond_0
+    return-void
+.end method
+
+.method public turnOffProx(I)V
+    .locals 4
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeTriggers;->mDozeSensors:Lcom/android/systemui/doze/DozeSensors;
+
+    new-instance v1, Lcom/android/systemui/doze/-$$Lambda$DozeTriggers$Y9Hvfk0n3yPK2FQ39O1Z5j49gj0;
+
+    invoke-direct {v1, v0, p1, p0}, Lcom/android/systemui/doze/-$$Lambda$DozeTriggers$Y9Hvfk0n3yPK2FQ39O1Z5j49gj0;-><init>(Lcom/android/systemui/doze/DozeSensors;ILcom/android/systemui/doze/DozeTriggers;)V
+
+    check-cast v1, Ljava/lang/Runnable;
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeTriggers;->mHandler:Landroid/os/Handler;
+
+    const-wide/16 v2, 0x1388
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    return-void
 .end method

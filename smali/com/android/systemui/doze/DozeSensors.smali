@@ -918,3 +918,53 @@
 
     return-void
 .end method
+
+.method public requestSleep()V
+    .locals 3
+
+    .line 111
+    iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors;->mContext:Landroid/content/Context;
+
+    const-class v0, Landroid/os/PowerManager;
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/PowerManager;
+
+    .line 112
+    .local v0, "pm":Landroid/os/PowerManager;
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v1
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->goToSleep(J)V
+
+    .line 113
+    return-void
+.end method
+
+.method public isKeyguard()Z
+    .locals 2
+
+    .line 111
+    iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors;->mContext:Landroid/content/Context;
+
+    const-class v0, Landroid/app/KeyguardManager;
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/KeyguardManager;
+
+    .line 112
+    .local v0, "km":Landroid/app/KeyguardManager;
+    invoke-virtual {v0}, Landroid/app/KeyguardManager;->isKeyguardLocked()Z
+
+    move-result v0
+
+    .line 113
+    return v0
+.end method
