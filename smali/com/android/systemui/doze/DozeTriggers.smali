@@ -1602,6 +1602,8 @@
     move v2, v1
 
     :goto_0
+    const/4 v2, 0x1
+
     invoke-virtual {p1, v2}, Lcom/android/systemui/doze/DozeSensors;->setProxListening(Z)V
 
     .line 310
