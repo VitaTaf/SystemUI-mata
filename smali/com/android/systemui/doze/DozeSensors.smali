@@ -25,7 +25,7 @@
 
 .field private final mConfig:Landroid/hardware/display/AmbientDisplayConfiguration;
 
-.field private final mContext:Landroid/content/Context;
+.field final mContext:Landroid/content/Context;
 
 .field private mDebounceFrom:J
 
@@ -921,6 +921,15 @@
 
 .method public requestSleep()V
     .locals 3
+    iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors;->mProxSensor:Lcom/android/systemui/doze/DozeSensors$ProxSensor;
+
+    iget-boolean v0, v1, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mPulseByProx:Z
+
+    if-eqz v0, :cond_return
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, v1, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mPulseByProx:Z
 
     .line 111
     iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors;->mContext:Landroid/content/Context;
@@ -942,6 +951,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->goToSleep(J)V
 
     .line 113
+    :cond_return
     return-void
 .end method
 
