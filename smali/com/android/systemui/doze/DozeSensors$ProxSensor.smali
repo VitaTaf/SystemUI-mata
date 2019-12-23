@@ -36,6 +36,8 @@
 
 .field final synthetic this$0:Lcom/android/systemui/doze/DozeSensors;
 
+.field mJustRequested:Z
+
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;)V
@@ -145,6 +147,8 @@
 
     :cond_0
     if-eqz p1, :cond_1
+
+    iput-boolean p1, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mJustRequested:Z
 
     .line 336
     iget-object p1, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
@@ -389,30 +393,19 @@
 
     if-eqz p1, :cond_6
 
-    iget-wide v4, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mLastNear:J
+    iget-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mJustRequested:Z
 
-    sub-long/2addr v2, v4
-
-    iget-object p1, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mPolicy:Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;
-
-    iget-wide v4, p1, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;->proxCooldownTriggerMs:J
-
-    cmp-long v0, v2, v4
-
-    if-gez v0, :cond_6
-
-    .line 367
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mCooldownTimer:Lcom/android/systemui/util/AlarmTimeout;
-
-    iget-wide v2, p1, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;->proxCooldownPeriodMs:J
-
-    invoke-virtual {v0, v2, v3, v1}, Lcom/android/systemui/util/AlarmTimeout;->schedule(JI)Z
+    if-nez v0, :cond_6
 
     .line 369
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->updateRegistered()V
+    invoke-direct {p0}, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->pulse()V
 
     :cond_6
     :goto_1
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mJustRequested:Z
+
     return-void
 .end method
 
@@ -512,4 +505,26 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method private pulse()V
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
+
+    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$1200(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/doze/DozeSensors$Callback;
+
+    move-result-object v0
+
+    const/4 v4, 0x3
+
+    const/4 v3, -0x1
+
+    const/4 v1, -0x1
+
+    const/4 v2, 0x0
+
+    invoke-interface {v0, v4, v3, v1, v2}, Lcom/android/systemui/doze/DozeSensors$Callback;->onSensorPulse(IFF[F)V
+
+    return-void
 .end method
