@@ -1485,11 +1485,6 @@
 .method public updateMediaMetaData(ZZ)V
     .locals 0
 
-    .line 436
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter;->mMediaManager:Lcom/android/systemui/statusbar/NotificationMediaManager;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/NotificationMediaManager;->updateMediaMetaData(ZZ)V
-
     return-void
 .end method
 
