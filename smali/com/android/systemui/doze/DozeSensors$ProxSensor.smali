@@ -559,7 +559,7 @@
 .end method
 
 .method private pulse()V
-    .locals 5
+    .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
@@ -567,15 +567,17 @@
 
     move-result-object v0
 
-    const/4 v4, 0x3
+    const/4 v1, 0x3
 
     const/4 v3, -0x1
 
-    const/4 v1, -0x1
+    const/4 v4, -0x1
+
+    const/4 v5, 0x0
 
     const/4 v2, 0x0
 
-    invoke-interface {v0, v4, v3, v1, v2}, Lcom/android/systemui/doze/DozeSensors$Callback;->onSensorPulse(IFF[F)V
+    invoke-interface/range {v0 .. v5}, Lcom/android/systemui/doze/DozeSensors$Callback;->onSensorPulse(IZFF[F)V
 
     return-void
 .end method
