@@ -136,7 +136,7 @@
 .end method
 
 .method private setRegistered(Z)V
-    .locals 6
+    .locals 3
 
     .line 332
     iget-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mRegistered:Z
@@ -157,25 +157,19 @@
 
     move-result-object p1
 
-    iget-object v2, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mSensor:Landroid/hardware/Sensor;
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mSensor:Landroid/hardware/Sensor;
 
-    const v3, 0xf4240
+    const/4 v1, 0x3
 
-    const v4, 0xf4240
-
-    iget-object v5, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
+    iget-object v2, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
     .line 337
-    invoke-static {v5}, Lcom/android/systemui/doze/DozeSensors;->access$300(Lcom/android/systemui/doze/DozeSensors;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/systemui/doze/DozeSensors;->access$300(Lcom/android/systemui/doze/DozeSensors;)Landroid/os/Handler;
 
-    move-result-object v5
-
-    move-object v0, p1
-
-    move-object v1, p0
+    move-result-object v2
 
     .line 336
-    invoke-virtual/range {v0 .. v5}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;IILandroid/os/Handler;)Z
+    invoke-virtual {p1, p0, v0, v1, v2}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;ILandroid/os/Handler;)Z
 
     move-result p1
 
