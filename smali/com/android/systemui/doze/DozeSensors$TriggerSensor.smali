@@ -41,6 +41,8 @@
 
 .field final synthetic this$0:Lcom/android/systemui/doze/DozeSensors;
 
+.field mLastTrigger:J
+
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZIZZ)V
@@ -327,6 +329,23 @@
 
     .line 501
     :goto_0
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v4
+
+    iget-wide v2, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mLastTrigger:J
+
+    sub-long v0, v4, v2
+
+    iput-wide v4, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mLastTrigger:J
+
+    const-wide v2, 0x3e8
+
+    cmp-long v0, v0, v2 # -1 if not enough time has passed
+
+    if-lez v0, :skip_pulse
+
+
     iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
     invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$1200(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/doze/DozeSensors$Callback;
@@ -344,6 +363,8 @@
     iget-object v8, p1, Landroid/hardware/TriggerEvent;->values:[F
 
     invoke-interface/range {v3 .. v8}, Lcom/android/systemui/doze/DozeSensors$Callback;->onSensorPulse(IZFF[F)V
+
+    :skip_pulse
 
     .line 503
     iget-boolean p1, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRegistered:Z
@@ -695,6 +716,12 @@
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRegistered:Z
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v2
+
+    iput-wide v2, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mLastTrigger:J
 
     .line 453
     invoke-static {}, Lcom/android/systemui/doze/DozeSensors;->access$600()Z
