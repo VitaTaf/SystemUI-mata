@@ -333,6 +333,10 @@
 
     move-result-object v3
 
+    const/4 v4, 0x0
+
+    iput-boolean v4, v0, Lcom/android/systemui/doze/DozeSensors;->mPulseByProxOrSigMotion:Z
+
     iget v4, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mPulseReason:I
 
     iget-boolean v5, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mSensorPerformsProxCheck:Z

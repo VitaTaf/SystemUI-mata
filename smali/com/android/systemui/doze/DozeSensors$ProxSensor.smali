@@ -40,8 +40,6 @@
 
 .field mSleep:Z
 
-.field mPulseByProx:Z
-
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;)V
@@ -442,7 +440,9 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mPulseByProx:Z
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
+
+    iput-boolean v0, p1, Lcom/android/systemui/doze/DozeSensors;->mPulseByProxOrSigMotion:Z
 
     invoke-direct {p0}, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->pulse()V
 

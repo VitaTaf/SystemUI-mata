@@ -63,6 +63,8 @@
 
 .field private final mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
+.field mPulseByProxOrSigMotion:Z
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -921,15 +923,13 @@
 
 .method public requestSleep()V
     .locals 3
-    iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors;->mProxSensor:Lcom/android/systemui/doze/DozeSensors$ProxSensor;
-
-    iget-boolean v0, v1, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mPulseByProx:Z
+    iget-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors;->mPulseByProxOrSigMotion:Z
 
     if-eqz v0, :cond_return
 
     const/4 v0, 0x0
 
-    iput-boolean v0, v1, Lcom/android/systemui/doze/DozeSensors$ProxSensor;->mPulseByProx:Z
+    iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors;->mPulseByProxOrSigMotion:Z
 
     .line 111
     iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors;->mContext:Landroid/content/Context;
