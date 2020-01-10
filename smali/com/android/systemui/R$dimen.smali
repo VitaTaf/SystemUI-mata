@@ -514,4 +514,4 @@
 
 .field public static final z_distance_between_notifications:I = 0x7f0703fb
 
-.field public static final smartspace_icon_shadow:I = 0x7f07f000
+.field public static final smartspace_icon_shadow:I = 0x7f070400

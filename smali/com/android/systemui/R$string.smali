@@ -1238,8 +1238,8 @@
 
 .field public static final zen_silence_introduction_voice:I = 0x7f110663
 
-.field public static final smartspace_hours_mins:I = 0x7f11f000
+.field public static final smartspace_hours_mins:I = 0x7f110670
 
-.field public static final smartspace_now:I = 0x7f11f001
+.field public static final smartspace_now:I = 0x7f110671
 
-.field public static final smartspace_pill_text_format:I = 0x7f11f002
+.field public static final smartspace_pill_text_format:I = 0x7f110672
