@@ -1811,7 +1811,7 @@
     invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     .line 457
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mBackdrop:Lcom/android/systemui/statusbar/BackDropView;
+    const/4 v0, 0x0
 
     if-nez v0, :cond_0
 
